@@ -6,6 +6,9 @@
 using EFxceptions;
 using Microsoft.EntityFrameworkCore;
 using Sofee.Prosurer.Models.Users;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Sofee.Prosurer.Brokers.Storages
 {
@@ -23,6 +26,9 @@ namespace Sofee.Prosurer.Brokers.Storages
 
             return user;
         }
+
+        public IQueryable<User> SelectAllUsers() =>
+            this.Users.AsQueryable();
 
         public async Task<User> SelectUserByIdAsync(Guid userId) =>
             await Users.FindAsync(userId);
