@@ -24,9 +24,13 @@ namespace Sofee.Prosurer.Brokers.Storages
             return user;
         }
 
+        public async Task<User> SelectUserByIdAsync(Guid userId) =>
+            await Users.FindAsync(userId);
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string connectionString = "Data Source=..\\..\\..\\Sofee.db";
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             optionsBuilder.UseSqlite(connectionString);
         }
     }
