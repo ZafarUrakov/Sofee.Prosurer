@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sofee.Prosurer.Brokers.Logging
+namespace Sofee.Prosurer.Brokers.Loggings
 {
     internal class LoggingBroker
     {
