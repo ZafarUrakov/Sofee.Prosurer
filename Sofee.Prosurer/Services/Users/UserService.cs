@@ -27,15 +27,19 @@ namespace Sofee.Prosurer.Services.Users
             if (user is null)
                 throw new NullUserException();
 
-            Validate(
-                (Rule: IsInvalid(user.Id), Parameter: nameof(User.Id)),
-                (Rule: IsInvalid(user.Firstname), Parameter: nameof(User.Firstname)),
-                (Rule: IsInvalid(user.Email), Parameter: nameof(User.Email)),
-                (Rule: IsInvalid(user.GroupId), Parameter: nameof(User.GroupId)));
+            //Validate(
+            //    (Rule: IsInvalid(user.Id), Parameter: nameof(User.Id)),
+            //    (Rule: IsInvalid(user.Firstname), Parameter: nameof(User.Firstname)),
+            //    (Rule: IsInvalid(user.Lastname), Parameter: nameof(User.Lastname)),
+            //    (Rule: IsInvalid(user.Email), Parameter: nameof(User.Email)),
+            //    (Rule: IsInvalid(user.GroupId), Parameter: nameof(User.GroupId)));
 
             Validate(
-               (Rule: IsInvalidBirthDate(user.BirthDate), Parameter: nameof(User.BirthDate)),
-            (Rule: IsInvalid(user.Email), Parameter: nameof(User.Email)));
+              (Rule: IsInvalidPhoneNumber(user.PhoneNumber), Parameter: nameof(User.PhoneNumber)));
+
+           //Validate(
+           //    (Rule: IsInvalidBirthDate(user.BirthDate), Parameter: nameof(User.BirthDate)),
+           //    (Rule: IsInvalid(user.Email), Parameter: nameof(User.Email)));
 
 
             return this.storageBroker.InsertUserAsync(user);
@@ -55,8 +59,14 @@ namespace Sofee.Prosurer.Services.Users
 
         private dynamic IsInvalideEmail(string email) => new
         {
-            Condition = Regex.IsMatch(email,@"^(.+)@(.+)$"),
+            Condition = !Regex.IsMatch(email,@"^(.+)@(.+)$"),
             Message = "Email is invalide"
+        };
+
+        private dynamic IsInvalidPhoneNumber(string phoneNumber) => new
+        {
+            Condition = !Regex.IsMatch(phoneNumber, "^\\+?[1-9][0-9]{7,14}$"),
+            Message = "PhoneNumber is invalide"
         };
 
         private void Validate(params(dynamic Rule, string Parameter)[] validations)
