@@ -1,4 +1,4 @@
-﻿//=================================
+//=================================
 // Copyright (c) Sofee LLC.
 // Powering True Leadership
 //===============================
@@ -41,7 +41,6 @@ namespace Sofee.Prosurer.Services.Users
            //    (Rule: IsInvalidBirthDate(user.BirthDate), Parameter: nameof(User.BirthDate)),
            //    (Rule: IsInvalid(user.Email), Parameter: nameof(User.Email)));
 
-
             return this.storageBroker.InsertUserAsync(user);
         }
 
@@ -83,7 +82,7 @@ namespace Sofee.Prosurer.Services.Users
                 }
             }
 
-            invalidUserException.ThrowIfContainsErrors(); ;
+            invalidUserException.ThrowIfContainsErrors();
         }
     }
 }
