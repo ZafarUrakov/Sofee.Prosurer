@@ -10,7 +10,7 @@ namespace Sofee.Prosurer.Brokers.Loggings
 {
     internal class LoggingBroker
     {
-        public void LoggingError(NullUserException nullUserException) =>
-            Console.WriteLine(nullUserException.Message);
+        public void LoggingError(Exception exception) =>
+            Console.WriteLine(exception.Message);
     }
 }
