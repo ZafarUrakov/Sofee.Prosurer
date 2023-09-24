@@ -1,4 +1,4 @@
-﻿//=================================
+//=================================
 // Copyright (c) Sofee LLC.
 // Powering True Leadership
 //===============================
@@ -26,7 +26,7 @@ namespace Sofee.Prosurer.Services.Users
         {
             if (user is null)
                 throw new NullUserException();
-
+                
             Validate(
                 (Rule: IsInvalid(user.Id), Parameter: nameof(User.Id)),
                 (Rule: IsInvalid(user.Firstname), Parameter: nameof(User.Firstname)),
@@ -35,8 +35,7 @@ namespace Sofee.Prosurer.Services.Users
 
             Validate(
                (Rule: IsInvalidBirthDate(user.BirthDate), Parameter: nameof(User.BirthDate)),
-            (Rule: IsInvalid(user.Email), Parameter: nameof(User.Email)));
-
+               (Rule: IsInvalid(user.Email), Parameter: nameof(User.Email)));
 
             return this.storageBroker.InsertUserAsync(user);
         }
@@ -73,7 +72,7 @@ namespace Sofee.Prosurer.Services.Users
                 }
             }
 
-            invalidUserException.ThrowIfContainsErrors(); ;
+            invalidUserException.ThrowIfContainsErrors();
         }
     }
 }

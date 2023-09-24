@@ -1,4 +1,4 @@
-﻿//=================================
+//=================================
 // Copyright (c) Sofee LLC.
 // Powering True Leadership
 //===============================
@@ -14,3 +14,4 @@ namespace Sofee.Prosurer.Models.Users.Exceptions
         { }
     }
 }
+
