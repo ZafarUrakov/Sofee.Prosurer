@@ -22,13 +22,13 @@ namespace Sofee.Prosurer.Services.Users
             this.dateTimeBroker = new DateTimeBroker();
         }
 
-        /// <exception cref="NullUserException"></exception>
-        /// <exception cref="InvalidUserException"></exception>
-        internal Task<User> AddUserAsync(User user)
+        /// <exception cref="UserValidationException"></exception>
+        internal Task<User> AddUserAsync(User user) =>
+        TryCatch(() =>
         {
             ValidateUserOnAdd(user);
 
             return this.storageBroker.InsertUserAsync(user);
-        }
+        });
     }
 }
