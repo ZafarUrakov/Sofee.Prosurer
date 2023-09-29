@@ -22,7 +22,6 @@ namespace Sofee.Prosurer.Services.Users
             this.dateTimeBroker = new DateTimeBroker();
         }
 
-        /// <exception cref="UserValidationException"></exception>
         internal Task<User> AddUserAsync(User user) =>
         TryCatch(() =>
         {

@@ -7,10 +7,10 @@ using Xeptions;
 
 namespace Sofee.Prosurer.Models.Users.Exceptions
 {
-    internal class InvalidUserException : Xeption
+    internal class UserServiceException : Xeption
     {
-        public InvalidUserException()
-            : base(message: "User is invalid. Fix the errors and try again.")
+        public UserServiceException(Xeption innerException)
+            : base(message: "User service error occurred, contact support.", innerException)
         { }
     }
 }

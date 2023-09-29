@@ -3,9 +3,13 @@
 // Powering True Leadership
 //===============================
 
+using EFxceptions.Models.Exceptions;
+using Microsoft.EntityFrameworkCore;
 using Sofee.Prosurer.Models.Users;
 using Sofee.Prosurer.Models.Users.Exceptions;
+using System;
 using System.Threading.Tasks;
+using Xeptions;
 
 namespace Sofee.Prosurer.Services.Users
 {
@@ -21,18 +25,73 @@ namespace Sofee.Prosurer.Services.Users
             }
             catch (NullUserException nullUserException)
             {
-                var userValidationException =
-                    new UserValidationException(nullUserException);
-
-                throw userValidationException;
+                throw CreateValidationException(nullUserException);
             }
             catch (InvalidUserException invalidUserException)
             {
-                var userValidationException =
-                   new UserValidationException(invalidUserException);
-
-                throw userValidationException;
+                throw CreateValidationException(invalidUserException);
             }
+            catch (DuplicateKeyException duplicateKeyException)
+            {
+                var alreadyExistsClientException =
+                    new AlreadyExistsUserException(duplicateKeyException);
+
+                throw CreateDependencyValidationException(alreadyExistsClientException);
+            }
+            catch (DbUpdateConcurrencyException dbUpdateConcurrencyException)
+            {
+                var lockedUserException =
+                    new LockedUserException(dbUpdateConcurrencyException);
+
+                throw CreateDependencyException(lockedUserException);
+
+            }
+            catch (DbUpdateException dbUpdateException)
+            {
+                var failedStorageUserException =
+                    new FailedStorageUserException(dbUpdateException);
+
+                throw CreateDependencyException(failedStorageUserException);
+            }
+            catch (Exception exception)
+            {
+                var failedServiceUserException =
+                    new FailedServiceUserException(exception);
+
+                throw CreateServiceException(failedServiceUserException);
+            }
+        }
+
+        private UserValidationException CreateValidationException(Xeption xeption)
+        {
+            var userValidationException =
+                   new UserValidationException(xeption);
+
+            return userValidationException;
+        }
+
+        private UserDependencyValidationException CreateDependencyValidationException(Xeption xeption)
+        {
+            var userDependencyValidationException =
+                new UserDependencyValidationException(xeption);
+
+            return userDependencyValidationException;
+        }
+
+        private UserDependencyException CreateDependencyException(Xeption xeption)
+        {
+            var userDependencyException =
+                new UserDependencyException(xeption);
+
+            return userDependencyException;
+        }
+
+        private UserServiceException CreateServiceException(Xeption xeption)
+        {
+            var userServiceException =
+                new UserServiceException(xeption);
+
+            return userServiceException;
         }
     }
 }
