@@ -10,7 +10,7 @@ namespace Sofee.Prosurer.Models.Users.Exceptions
     internal class NullUserException : Xeption
     {
         public NullUserException()
-               : base(message: "Client is null")
+               : base(message: "User is null")
         { }
     }
 }
