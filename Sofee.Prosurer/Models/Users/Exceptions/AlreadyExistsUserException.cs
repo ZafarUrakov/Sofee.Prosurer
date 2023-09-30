@@ -20,3 +20,5 @@ namespace Sofee.Prosurer.Models.Users.Exceptions
         {
             this.duplicateKeyException = duplicateKeyException;
         }
+    }
+}
