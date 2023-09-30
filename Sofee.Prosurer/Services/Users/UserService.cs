@@ -16,7 +16,7 @@ namespace Sofee.Prosurer.Services.Users
         private readonly StorageBroker storageBroker;
         private readonly DateTimeBroker dateTimeBroker;
 
-        public UserService()
+        public UserService(StorageBroker storageBroker, DateTimeBroker dateTimeBroker)
         {
             this.storageBroker = new StorageBroker();
             this.dateTimeBroker = new DateTimeBroker();
