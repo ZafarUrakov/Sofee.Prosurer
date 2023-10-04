@@ -7,7 +7,7 @@ using System;
 
 namespace Sofee.Prosurer.Models.Users
 {
-    internal class User
+    public class User
     {
         public Guid Id { get; set; }
         public string Firstname { get; set; }

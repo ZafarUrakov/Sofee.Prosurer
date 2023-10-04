@@ -11,23 +11,22 @@ using System.Threading.Tasks;
 
 namespace Sofee.Prosurer.Services.Users
 {
-    internal partial class UserService
+    public partial class UserService
     {
         private readonly StorageBroker storageBroker;
         private readonly DateTimeBroker dateTimeBroker;
 
-        public UserService(StorageBroker storageBroker, DateTimeBroker dateTimeBroker)
+        public UserService(StorageBroker storageBroker)
         {
             this.storageBroker = new StorageBroker();
-            this.dateTimeBroker = new DateTimeBroker();
         }
 
-        internal Task<User> AddUserAsync(User user) =>
+        public Task<User> AddUserAsync(User user) =>
         TryCatch(() =>
         {
             ValidateUserOnAdd(user);
 
-            return this.storageBroker.InsertUserAsync(user);
+            throw new System.NotImplementedException();
         });
     }
 }

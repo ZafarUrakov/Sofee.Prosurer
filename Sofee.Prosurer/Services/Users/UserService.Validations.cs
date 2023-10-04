@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 
 namespace Sofee.Prosurer.Services.Users
 {
-    internal partial class UserService
+    public partial class UserService
     {
         private void ValidateUserOnAdd(User user)
         {

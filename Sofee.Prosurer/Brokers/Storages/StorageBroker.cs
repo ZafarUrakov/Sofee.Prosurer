@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Sofee.Prosurer.Brokers.Storages
 {
-    internal class StorageBroker : EFxceptionsContext
+    public class StorageBroker : EFxceptionsContext
     {
         public DbSet<User> Users { get; set; }
 

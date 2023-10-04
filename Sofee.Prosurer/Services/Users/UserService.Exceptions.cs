@@ -13,7 +13,7 @@ using Xeptions;
 
 namespace Sofee.Prosurer.Services.Users
 {
-    internal partial class UserService
+    public partial class UserService
     {
         private delegate Task<User> ReturningUserFunction();
 

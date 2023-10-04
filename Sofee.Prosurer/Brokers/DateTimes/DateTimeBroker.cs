@@ -7,7 +7,7 @@ using System;
 
 namespace Sofee.Prosurer.Brokers.DateTimes
 {
-    internal class DateTimeBroker
+    public class DateTimeBroker
     {
         internal DateTimeOffset GetDateTimeOffset() =>
             DateTimeOffset.UtcNow;

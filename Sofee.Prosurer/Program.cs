@@ -17,8 +17,7 @@ namespace Sofee.Prosurer
         static async Task Main(string[] args)
         {
             UserService userService = new UserService(
-                storageBroker: new StorageBroker(),
-                dateTimeBroker: new DateTimeBroker());
+                storageBroker: new StorageBroker());
 
             User user = new User
             {
