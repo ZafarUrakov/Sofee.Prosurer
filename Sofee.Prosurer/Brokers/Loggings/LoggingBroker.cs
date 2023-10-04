@@ -3,14 +3,14 @@
 // Powering True Leadership
 //===============================
 
-using Sofee.Prosurer.Models.Users.Exceptions;
 using System;
+using Xeptions;
 
 namespace Sofee.Prosurer.Brokers.Loggings
 {
     internal class LoggingBroker
     {
-        public void LoggingError(NullUserException nullUserException) =>
-            Console.WriteLine(nullUserException.Message);
+        public void LoggingError(Xeption xeption) =>
+            Console.WriteLine(xeption.Message);
     }
 }
