@@ -25,7 +25,6 @@ namespace Sofee.Prosurer.Services.Users
                 (Rule: IsInvalid(user.GroupId), Parameter: nameof(User.GroupId)));
 
             Validate(
-               (Rule: IsInvalidPhoneNumber(user.PhoneNumber), Parameter: nameof(User.PhoneNumber)),
                (Rule: IsInvalid(user.Email), Parameter: nameof(User.Email)));
         }
 
@@ -49,7 +48,7 @@ namespace Sofee.Prosurer.Services.Users
 
         private dynamic IsInvalid(DateTimeOffset date) => new
         {
-            Condition = date = default,
+            Condition = date == default,
             Message = "Date is required"
         };
 
@@ -73,11 +72,6 @@ namespace Sofee.Prosurer.Services.Users
             Message = "Email is invalide"
         };
 
-        private dynamic IsInvalidPhoneNumber(string phoneNumber) => new
-        {
-            Condition = !Regex.IsMatch(phoneNumber, "^\\+?[1-9][0-9]{7,14}$"),
-            Message = "PhoneNumber is invalide"
-        };
 
         private void Validate(params (dynamic Rule, string Parameter)[] validations)
         {
