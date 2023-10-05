@@ -6,7 +6,6 @@
 using Sofee.Prosurer.Brokers.DateTimes;
 using Sofee.Prosurer.Brokers.Storages;
 using Sofee.Prosurer.Models.Users;
-using Sofee.Prosurer.Models.Users.Exceptions;
 using System.Threading.Tasks;
 
 namespace Sofee.Prosurer.Services.Users
