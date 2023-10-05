@@ -3,17 +3,17 @@
 // Powering True Leadership
 //===============================
 
+using Bogus;
 using Sofee.Prosurer.Brokers.DateTimes;
 using Sofee.Prosurer.Brokers.Loggings;
 using Sofee.Prosurer.Brokers.Storages;
 using Sofee.Prosurer.Models.Users;
+using Sofee.Prosurer.Models.Users.Exceptions;
 using Sofee.Prosurer.Services.Users;
 using System;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Sofee.Prosurer.Models.Users.Exceptions;
-using Bogus;
 
 namespace Sofee.Prosurer
 {
