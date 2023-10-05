@@ -10,10 +10,10 @@
   <ItemGroup>
     <PackageReference Include="Bogus" Version="34.0.2" />
     <PackageReference Include="EFxceptions" Version="0.4.5" />
-    <PackageReference Include="Faker" Version="1.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="7.0.11" />
     <PackageReference Include="System.Runtime" Version="4.3.1" />
+    <PackageReference Include="Tynamix.ObjectFiller" Version="1.5.8" />
     <PackageReference Include="Xeption" Version="2.5.0" />
   </ItemGroup>
 
